@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 namespace nanka
@@ -50,6 +45,7 @@ namespace nanka
             string name = Path.GetFileNameWithoutExtension(path) + ".BAK";
             string path3 = Path.Combine(Path.GetDirectoryName(path), name);
             System.IO.File.Copy(path, path3, true);
+            MessageBox.Show(string.Format("保存完了", crc), "info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -81,6 +77,7 @@ namespace nanka
                     sw.Write(Path.GetFileName(path) + "[" + textBox2.Text + "]\n");
                     sw.Write(textBox3.Text + "\n\n\n");
                     sw.Close();
+                    MessageBox.Show(string.Format("追加しました。", crc), "info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
